@@ -18,21 +18,24 @@ public class SQLConnectionClass {
                     connectionString, userName, password);
             stmt = (Statement) con.createStatement();
             ResultSet rs = stmt.executeQuery(statement);
-
+            String tempResult = "";
             while (rs.next()) {
+                 tempResult = "";
                 ResultSetMetaData rsmd = (ResultSetMetaData) rs.getMetaData();
-                String tempResult = "";
-                System.out.println(rsmd.getColumnCount());
-                for (int i = 1; i <= rsmd.getColumnCount(); i++) {
-                    // System.out.println(rs.getString(i));
+               // System.out.println(rsmd.getColumnCount());
+                for(int i=1;i<=rsmd.getColumnCount(); i++){
+                    tempResult += rs.getString(i);
+                    tempResult += "::";
                 }
+                System.out.println(" ");
+               // System.out.println(rs.getString(1));
                 serverResponse.add(tempResult);
-                System.out.println(rs.getString(tempResult));
+
             }
 
             con.close();
-
-        } catch (Exception e) {
+        }
+         catch (Exception e) {
             System.out.println(e);
         }
 
