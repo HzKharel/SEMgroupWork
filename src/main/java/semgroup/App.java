@@ -1,22 +1,20 @@
 package semgroup;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.*;
 
 public class App {
 
     public static void  main(String args[]){
-        /*
-        SQLConnectionClass sql = new SQLConnectionClass();
-       List<String> SqlReturn =  sql.ExecuteSQL("Select name,population,countrycode from city where countrycode = 'GBR' ORDER by name");
-        for (String x :SqlReturn) {
-            System.out.println(x);
+        SQLiteDBconnection sql = SQLiteDBconnection.getInstance();
 
-        }
-        */
-      //  SQLiteDBconnection sql = new SQLiteDBconnection();
-      //  sql.Command("Select *");
+        System.out.println(sql.command("Select name from city"));
 
-        SQLConnectionClass sql = new SQLConnectionClass();
-        System.out.println(sql.ExecuteSQL("Select name from City where country code = 'GBR'"));
 
     }
+
+
 }
+
