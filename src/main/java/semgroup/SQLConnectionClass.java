@@ -27,7 +27,6 @@ public class SQLConnectionClass {
                     tempResult += rs.getString(i);
                     tempResult += "::";
                 }
-                System.out.println(" ");
                // System.out.println(rs.getString(1));
                 serverResponse.add(tempResult);
 
